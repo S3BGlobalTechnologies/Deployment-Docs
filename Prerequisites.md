@@ -1,7 +1,74 @@
-## Prerequisites
+Prerequisites
 - A machine with a supported OS (Linux, macOS, or Windows).
 - Administrator/root access on the machine.
 - Azure account for deploying on Azure Kubernetes Service (AKS).
+
+
+### Create AKS Cluser in Azure portal
+- Sign in to Azure Portal
+  - Open your web browser and navigate to the Azure Portal.
+  - Sign in with your Azure account credentials.
+
+- Create an AKS Cluster
+  -  Search for “Kubernetes Service” and select “Kubernetes Service (AKS)” from the results.
+  -  Click the “Create” button to start the AKS creation wizard.
+
+- Basics
+   -In the “Basics” tab of the AKS creation wizard:
+  - Choose your Azure subscription.
+  - Select the resource group created before (“MyAKSClusterResourceGroup”).
+  - Enter a unique name for your AKS cluster (e.g., “MyAKSCluster”).
+  - Choose the region for your AKS cluster (e.g., East US).
+  - Select the desired Kubernetes version (e.g., 1.26.6).
+ 
+- Cluster Preset Configuration
+  - For practice purposes and development/testing tasks, select a cluster preset configuration that suits your needs, such as “Dev/Test/production.”
+  - This preset can provide you with predefined configurations optimized for these scenarios.
+
+- Availability Zones
+  - Specify the availability zones where your cluster nodes will be placed for increased resiliency.
+
+- AKS Pricing Tier
+  - AKS offers two pricing tiers for the managed Kubernetes control plane. Choose the pricing tier that best meets your needs.
+    example  -  `Standard_D2ds_v4`
+    
+-  Automatic upgrade Type:
+    - Choose an upgrade type to determine when the cluster will be upgraded based on new AKS and Kubernetes releases. (For example, you can choose “Enable with Patch” for recommended automatic upgrades.)
+
+- Authentication and Authorization:
+  - For authentication and authorization, you can choose to use local accounts with Kubernetes RBAC. This provides a native Kubernetes RBAC managed locally within your AKS cluster.
+
+- Click “Next: Node Pools” to proceed.
+
+  ![image](https://github.com/user-attachments/assets/0acf6702-db33-4e84-96cc-be3304a92a3a)
+
+- Node Pool
+  - You can add or customize node pools based on your application requirements.
+  - Define the number of nodes, VM size, and other settings for your node pool.
+
+  ![image](https://github.com/user-attachments/assets/af19000e-1a75-4986-8a44-62594e5212a9)
+
+-  Networking
+  Configure the networking settings for your AKS cluster. The default settings are usually sufficient for most use cases.
+  ![image](https://github.com/user-attachments/assets/5a6626d6-f51f-462e-ad72-6528cda19f71)
+
+- Integrations
+  - Configure integrations with Azure services and features.
+  - You can enable Azure Container Registry integration, Azure Policy, and more.
+  - Click “Next: Monitoring” when you’re done.
+
+- Monitoring
+  - Enable monitoring if you want to use Azure Monitor and Azure Log Analytics for cluster monitoring and diagnostics.
+  - Click “Next: Scaling” when you’re done.
+
+- Tags
+  - Add tags to your AKS cluster for better organization and management.
+  - Click “Review + create” when you’re done.
+- Review + create
+  - Review all the configuration settings to ensure they are correct.
+  - If everything looks good, click the “Create” button to start the provisioning of the AKS cluster.
+- Deployment
+  - Azure will begin deploying your AKS cluster. This process may take several minutes.
 
 ### Install Necessary Tools
 
@@ -15,3 +82,25 @@ curl.exe -LO "https://dl.k8s.io/release/v1.31.0/bin/windows/amd64/kubectl.exe"
 
   - Test to ensure the version you installed is up-to-date:
   ` kubectl version --client`
+
+
+### 1.2 Install Azure CLI
+Download and install the latest release of the Azure CLI. When the installer asks if it can make changes to your computer, select the "Yes" box.
+[Link to download Azure CLI](https://aka.ms/installazurecliwindowsx64)
+
+  - Verify the installation:
+    `az version`
+
+### 1.3 Set Up an Azure Kubernetes Service (AKS) Cluster 
+      `az login`
+
+### 1.4 Set the cluster subscription
+az account set --subscription <Subscription-ID>
+example :  `az account set --subscription aad56ace-9dd1-4f57-ad3e-0c4608585754`
+
+### 1.5 Download cluster credentials
+az aks get-credentials --resource-group awkn-non-prod-env-01 --name awkn-aks-cluster --overwrite-existing
+
+
+
+
