@@ -91,14 +91,14 @@ Download and install the latest release of the Azure CLI. When the installer ask
   - Verify the installation:
     `az version`
 
-### 1.3 Set Up an Azure Kubernetes Service (AKS) Cluster 
+#### 1.3 Set Up an Azure Kubernetes Service (AKS) Cluster 
       `az login`
 
-### 1.4 Set the cluster subscription
+#### 1.4 Set the cluster subscription
 az account set --subscription <Subscription-ID>
 example :  `az account set --subscription aad56ace-9dd1-4f57-ad3e-0c4608585754`
 
-### 1.5 Download cluster credentials
+#### 1.5 Download cluster credentials
 az aks get-credentials --resource-group awkn-non-prod-env-01 --name awkn-aks-cluster --overwrite-existing
 
 
