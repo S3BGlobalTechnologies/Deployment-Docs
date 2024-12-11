@@ -4,6 +4,7 @@
 - Azure account for deploying on Azure Kubernetes Service (AKS).
 
 
+
 ### Create AKS Cluser in Azure portal
 - Sign in to Azure Portal
   - Open your web browser and navigate to the Azure Portal.
@@ -70,6 +71,8 @@
 - Deployment
   - Azure will begin deploying your AKS cluster. This process may take several minutes.
 
+
+
 ## Install Necessary Tools
 
 ### 1.1 Install Kubernetes Tools
@@ -82,6 +85,7 @@ curl.exe -LO "https://dl.k8s.io/release/v1.31.0/bin/windows/amd64/kubectl.exe"
 
   - Test to ensure the version you installed is up-to-date:
   `kubectl version --client`
+
 
 
 ### 1.2 Install Azure CLI
