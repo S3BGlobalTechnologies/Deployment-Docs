@@ -13,5 +13,5 @@ curl.exe -LO "https://dl.k8s.io/release/v1.31.0/bin/windows/amd64/kubectl.exe"
 - Using Chocolatey
   choco install kubernetes-cli
 
-  -Test to ensure the version you installed is up-to-date:
+  - Test to ensure the version you installed is up-to-date:
   ` kubectl version --client`
