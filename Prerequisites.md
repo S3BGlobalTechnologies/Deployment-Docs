@@ -1,4 +1,4 @@
-Prerequisites
+# Prerequisites
 - A machine with a supported OS (Linux, macOS, or Windows).
 - Administrator/root access on the machine.
 - Azure account for deploying on Azure Kubernetes Service (AKS).
@@ -81,7 +81,7 @@ curl.exe -LO "https://dl.k8s.io/release/v1.31.0/bin/windows/amd64/kubectl.exe"
   choco install kubernetes-cli
 
   - Test to ensure the version you installed is up-to-date:
-  ` kubectl version --client`
+  `kubectl version --client`
 
 
 ### 1.2 Install Azure CLI
