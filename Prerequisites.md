@@ -1,11 +1,11 @@
-###Prerequisites
+## Prerequisites
 - A machine with a supported OS (Linux, macOS, or Windows).
 - Administrator/root access on the machine.
 - Azure account for deploying on Azure Kubernetes Service (AKS).
 
-##Step 1: Install Necessary Tools
+### Install Necessary Tools
 
-###1.1 Install Kubernetes Tools
+#### 1.1 Install Kubernetes Tools
 - Using curl:
 If you have curl installed, use this command:
 curl.exe -LO "https://dl.k8s.io/release/v1.31.0/bin/windows/amd64/kubectl.exe"
