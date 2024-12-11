@@ -91,7 +91,8 @@ Download and install the latest release of the Azure CLI. When the installer ask
   - Verify the installation:
  `kubectl version --client`
 
-#### 1.3 Set Up an Azure Kubernetes Service (AKS) Cluster `az login`
+#### 1.3 Set Up an Azure Kubernetes Service (AKS) Cluster 
+  - Login to azure cli using command `az login`
 
 #### 1.4 Set the cluster subscription
 az account set --subscription <Subscription-ID>
