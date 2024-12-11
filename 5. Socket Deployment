@@ -1,1 +1,83 @@
+- Change image tag in deployment
+
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: awkn-socket-io-backend-deployment
+  namespace: awkn-dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: awkn-socket-io-backend
+  template:
+    metadata:
+      labels:
+        app: awkn-socket-io-backend
+    spec:
+      containers:
+        - name: awkn-socket-io-backend
+          image: awokenin.azurecr.io/awkn-socket-io-backend:dev-v10
+          ports:
+            - containerPort: 4000
+          env:
+            - name: PORT
+              value: "4000"
+            - name: ARANGO_URL
+              value: "https://chrome.awokenin.com"
+            - name: ARANGO_USERNAME
+              value: "root"
+            - name: ARANGO_PASSWORD
+              value: "rootpassword"
+            - name: ARANGO_DATABASE_NAME
+              value: "awokenin"
+            - name: KEYCLOAK_CLIENT_ID
+              value: "awokenin-user"
+            - name: KEYCLOAK_URL
+              value: "https://keycloak.awokenin.com"
+            - name: KEYCLOAK_ADMIN_CLIENT_ID
+              value: "admin-cli"
+            - name: KEYCLOAK_ADMIN_USERNAME
+              value: "admin"
+            - name: KEYCLOAK_ADMIN_PASSWORD
+              value: "Password123"
+            - name: KEYCLOAK_ADMIN_GRANT_TYPE
+              value: "password"
+            - name: REALM_NAME
+              value: "awokenin"
+            - name: EMAIL_HOST
+              value: "smtp.gmail.com"
+            - name: EMAIL_PORT
+              value: "587"
+            - name: EMAIL_HOST_USER
+              value: "awokenin.s3b@gmail.com"
+            - name: EMAIL_HOST_PASSWORD
+              value: "wtdo anuk ueof batx"
+            - name: KEYCLOAK_PUBLIC_KEY
+              valueFrom: 
+                configMapKeyRef: 
+                  name: keycloak-public-key-config
+                  key: KEYCLOAK_PUBLIC_KEY
+      imagePullSecrets:
+        - name: acr-secret
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: awkn-socket-io-backend-service
+  namespace: awkn-dev
+spec:
+  selector:
+    app: awkn-socket-io-backend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 4000
+```
+
+#### Create a Service
+`kubectl apply -f deployment.yaml`
 
